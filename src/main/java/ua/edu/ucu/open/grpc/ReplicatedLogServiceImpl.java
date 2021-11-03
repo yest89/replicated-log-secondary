@@ -22,7 +22,13 @@ public class ReplicatedLogServiceImpl
     public void storeLog(Log request, StreamObserver<Acknowledge> responseObserver) {
         log.debug("server received {}", request);
 
-        logService.add(request.getLog());
+        //to check successful replication
+        try {
+            Thread.sleep(10000);
+            logService.add(request.getLog());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         Acknowledge acknowledge = Acknowledge.newBuilder()
                 .setMessage(ACK)
