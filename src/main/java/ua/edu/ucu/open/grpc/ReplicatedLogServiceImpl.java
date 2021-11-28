@@ -21,11 +21,9 @@ public class ReplicatedLogServiceImpl
     @Override
     public void storeLog(Log request, StreamObserver<Acknowledge> responseObserver) {
         log.debug("server received {}", request);
-
-        //to check successful replication
         try {
-            Thread.sleep(10000);
-            logService.add(request.getLog());
+            Thread.sleep(5000);
+            logService.add(request.getLog(), request.getOrdinal());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

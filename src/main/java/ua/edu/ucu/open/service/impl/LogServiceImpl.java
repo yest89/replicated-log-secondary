@@ -19,7 +19,7 @@ public class LogServiceImpl implements LogService {
     }
 
     @Override
-    public void add(String log) {
-        logRepository.add(log);
+    public void add(String log, int ordinal) {
+        logRepository.add(log, ordinal);
     }
 }

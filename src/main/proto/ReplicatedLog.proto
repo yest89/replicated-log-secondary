@@ -5,6 +5,7 @@ package ua.edu.ucu.open.grpc.log;
 
 message Log {
   string Log = 1;
+  int32 Ordinal = 2;
 }
 
 message Acknowledge {

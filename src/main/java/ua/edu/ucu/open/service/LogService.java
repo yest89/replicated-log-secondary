@@ -5,5 +5,5 @@ import java.util.List;
 public interface LogService {
 
     List<String> getAll();
-    void add(String log);
+    void add(String log, int ordinal);
 }
