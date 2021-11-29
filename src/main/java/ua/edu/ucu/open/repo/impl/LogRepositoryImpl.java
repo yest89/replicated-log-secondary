@@ -22,7 +22,7 @@ public class LogRepositoryImpl implements LogRepository {
     @Override
     public List<String> getAll() {
         List<String> result = new ArrayList<>();
-        for (int i = 1; i < storage.size(); i++) {
+        for (int i = 0; i < storage.size(); i++) {
             if (storage.containsKey(i)) {
                 result.add(storage.get(i));
             }

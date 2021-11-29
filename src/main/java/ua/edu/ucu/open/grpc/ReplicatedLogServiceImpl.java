@@ -21,12 +21,13 @@ public class ReplicatedLogServiceImpl
     @Override
     public void storeLog(Log request, StreamObserver<Acknowledge> responseObserver) {
         log.debug("server received {}", request);
-        try {
-            Thread.sleep(5000);
-            logService.add(request.getLog(), request.getOrdinal());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(5000);
+//            logService.add(request.getLog(), request.getOrdinal());
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+        logService.add(request.getLog(), request.getOrdinal());
 
         Acknowledge acknowledge = Acknowledge.newBuilder()
                 .setMessage(ACK)
