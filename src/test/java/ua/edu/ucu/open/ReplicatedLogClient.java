@@ -19,7 +19,7 @@ public class ReplicatedLogClient {
     @PostConstruct
     private void init() {
         ManagedChannel managedChannel = ManagedChannelBuilder
-                .forAddress("localhost", 6567).usePlaintext().build();
+                .forAddress("host.docker.internal", 6567).usePlaintext().build();
 
         replicatedLogServiceBlockingStub =
                 ReplicatedLogServiceGrpc.newBlockingStub(managedChannel);
